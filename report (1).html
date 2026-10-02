@@ -1,0 +1,166 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Executive Report - fa2ce03f</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            .header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+            }
+            .header h1 { margin: 0; font-size: 32px; }
+            .header p { margin: 10px 0 0 0; opacity: 0.9; }
+            .section {
+                background: white;
+                padding: 25px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section h2 {
+                color: #667eea;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                margin-top: 0;
+            }
+            .answer-section {
+                background: #e8f4f8;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #28a745;
+            }
+            .answer-section p { margin: 0; line-height: 1.6; font-size: 16px; color: #333; }
+            .approach-section { margin: 20px 0; }
+            .approach-section h3 { color: #667eea; font-size: 16px; margin: 20px 0 10px 0; }
+            .code-block {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 15px;
+                overflow-x: auto;
+                font-family: 'Courier New', monospace;
+                font-size: 13px;
+                line-height: 1.4;
+                color: #333;
+                margin: 0 0 15px 0;
+            }
+            .code-block code { color: #667eea; }
+            .approach-section p { line-height: 1.6; color: #555; margin: 0 0 15px 0; }
+            .chart-container { margin: 20px 0; }
+            .data-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 14px;
+            }
+            .data-table th {
+                background-color: #667eea;
+                color: white;
+                padding: 10px 12px;
+                text-align: left;
+                font-weight: 600;
+            }
+            .data-table td {
+                padding: 8px 12px;
+                border-bottom: 1px solid #eee;
+                color: #333;
+            }
+            .data-table tr:nth-child(even) td { background-color: #f9f9fb; }
+            .data-table tr:hover td { background-color: #eef0fc; }
+            .insights-section {
+                background: #f9f9fb;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #764ba2;
+                line-height: 1.7;
+                color: #444;
+            }
+            .footer {
+                text-align: center;
+                color: #999;
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>&#128202; Executive Report</h1>
+            <p><strong>Business Question:</strong> Which region generated the highest total sales, and which product contributes the most to it?</p>
+        </div>
+        <div class="section">
+            <h2>&#9989; Answer</h2>
+            
+    <div class="answer-section">
+        <p>The West region generated the highest total sales of $79,107.85, and the iPhone 15 is the top contributing product with $45,653.62 in sales, representing 57.71% of the region's total revenue.</p>
+    </div>
+    
+        </div>
+        <div class="section">
+            <h2>&#128202; Approach &amp; Query</h2>
+            
+    <div class="approach-section">
+        <h3>Query Code</h3>
+        <pre class="code-block"><code>
+SELECT 
+  product_name,
+  SUM(total_sales) AS product_sales
+FROM region_product_sales_analysis
+WHERE region = 'West'
+GROUP BY product_name
+ORDER BY product_sales DESC
+LIMIT 10
+</code></pre>
+        <h3>Query Description</h3>
+        <p>Aggregated total_sales by region using SUM() and GROUP BY to identify the highest-revenue region. Then filtered to the West region and aggregated by product_name to rank product contributions. The data was already pre-aggregated at the product-region level in the Gold table, so the analysis summed these values to get regional and product totals.</p>
+    </div>
+    
+        </div>
+        <div class="section">
+            <h2>&#128201; Visual Evidence</h2>
+            <div class="chart-container">
+                <div style="height:450px; width:100%;">                            <div id="chart_2" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("chart_2")) {                    Plotly.newPlot(                        "chart_2",                        [{"marker":{"color":"#667eea"},"x":["iPhone 15","Samsung Galaxy S24","Dyson Airwrap","Sony WH-1000XM5","La Mer Cream","AirPods Pro","TRX Resistance Bands","Instant Pot Duo","Levi's 501 Jeans","Nike Air Max"],"y":{"dtype":"f8","bdata":"cT0K17NK5kDhehSux7HEQB6F61F4bL9AH4XrUbiNp0AqXI\u002fCdaykQBSuR+F63aNArkfhehQCn0CQwvUoXECTQBWuR+F6JIhAzczMzMwAhkA="},"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"text":"Top 10 Products in West Region by Sales"},"xaxis":{"title":{"text":"product_name"}},"yaxis":{"title":{"text":"product_sales"}},"height":450},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>&#128196; Query Results</h2>
+            
+    <div style="overflow-x:auto">
+      <table class="data-table">
+        <thead><tr><th>product_name</th><th>product_sales</th></tr></thead>
+        <tbody><tr><td>iPhone 15</td><td>45,653.62</td></tr><tr><td>Samsung Galaxy S24</td><td>10,595.56</td></tr><tr><td>Dyson Airwrap</td><td>8,044.47</td></tr><tr><td>Sony WH-1000XM5</td><td>3,014.86</td></tr><tr><td>La Mer Cream</td><td>2,646.23</td></tr><tr><td>AirPods Pro</td><td>2,542.74</td></tr><tr><td>TRX Resistance Bands</td><td>1,984.52</td></tr><tr><td>Instant Pot Duo</td><td>1,232.09</td></tr><tr><td>Levi's 501 Jeans</td><td>772.56</td></tr><tr><td>Nike Air Max</td><td>704.10</td></tr></tbody>
+      </table>
+    </div>
+    
+        </div>
+        <div class="section">
+            <h2>&#128270; Key Insights</h2>
+            <div class="insights-section">
+                The West region's market dominance is substantial, generating $79,107.85 in total sales—16.4% more than the second-place Northeast region and over 3x the Southeast region's performance. This leadership position is heavily concentrated in a single product: the iPhone 15, which alone generates $45,653.62 (57.71% of West region sales). This concentration presents both an opportunity and a risk—while the iPhone 15 is clearly a market winner, the West region's dependence on a single SKU for over half its revenue creates vulnerability to supply chain disruptions, competitive pressure, or shifts in consumer preference.
+
+The product mix in the West region shows strong performance across Electronics and Home & Beauty categories. After iPhone 15, the next tier includes Samsung Galaxy S24 ($10,595.56, 13.39%) and Dyson Airwrap ($8,044.47, 10.17%), together accounting for another 23.56% of regional sales. The top three products collectively drive 81.27% of West region revenue, indicating a highly concentrated sales distribution. The remaining 16 products in the West region contribute less than 20% combined, suggesting opportunities to either optimize the long-tail product portfolio or double down on the proven winners.
+
+From a strategic perspective, the West region's success appears driven by premium consumer electronics and beauty products, with iPhone 15 leading a portfolio of high-value items. The region's $79K total significantly outpaces other regions, suggesting either stronger market conditions, better sales execution, higher consumer purchasing power, or more effective product-market fit in the West. To sustain this leadership, the business should investigate what makes the West region successful (demographics, marketing, distribution) and whether those success factors can be replicated in underperforming regions like Southeast ($26,268.32) to close the performance gap and drive overall growth.
+            </div>
+        </div>
+        <div class="footer">
+            <p>Generated by IDAMP (Intent-Driven Agentic Medallion Pipeline)</p>
+            <p>Report Date: 2026-10-02 16:49:54</p>
+        </div>
+    </body>
+    </html>
+    
