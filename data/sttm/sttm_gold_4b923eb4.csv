@@ -1,0 +1,13 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+,,,gold,product_sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+,stores_silver,region,gold,product_sales_by_region,region,Direct,Passthrough from stores_silver.region
+,products_silver,product_id,gold,product_sales_by_region,product_id,Direct,Passthrough from products_silver.product_id
+,products_silver,product_name,gold,product_sales_by_region,product_name,Direct,Passthrough from products_silver.product_name
+,products_silver,category,gold,product_sales_by_region,category,Direct,Passthrough from products_silver.category
+,products_silver,standard_price,gold,product_sales_by_region,standard_price,Direct,Passthrough from products_silver.standard_price
+,sales_data_silver,quantity,gold,product_sales_by_region,quantity,Direct,Passthrough from sales_data_silver.quantity
+,sales_data_silver,total_amount,gold,product_sales_by_region,total_amount,Direct,Passthrough from sales_data_silver.total_amount
+,sales_data_silver,product_id,gold,product_sales_by_region,join_product_id,Direct,Used for join between sales_data_silver.product_id and products_silver.product_id
+,products_silver,product_id,gold,product_sales_by_region,join_product_id,Direct,Used for join between products_silver.product_id and sales_data_silver.product_id
+,sales_data_silver,store_id,gold,product_sales_by_region,join_store_id,Direct,Used for join between sales_data_silver.store_id and stores_silver.store_id
+,stores_silver,store_id,gold,product_sales_by_region,join_store_id,Direct,Used for join between stores_silver.store_id and sales_data_silver.store_id

@@ -1,0 +1,8 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+silver,,,gold,highest_sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+silver,stores_silver,region,gold,highest_sales_by_region,region,Direct,GROUP BY region
+silver,sales_data_silver,product_id,gold,highest_sales_by_region,product_id,Indirect,Product ID with highest total sales in each region; JOIN sales_data_silver ON store_id with stores_silver
+silver,sales_data_silver,product_name,gold,highest_sales_by_region,product_name,Indirect,Product name corresponding to the product with highest sales in each region
+silver,sales_data_silver,category,gold,highest_sales_by_region,category,Indirect,Category of the product with highest sales in each region
+silver,sales_data_silver,total_amount,gold,highest_sales_by_region,total_sales,Aggregation,SUM(total_amount) grouped by region and product_id; JOIN sales_data_silver with stores_silver on store_id; identify product with MAX total sales per region
+silver,sales_data_silver,quantity,gold,highest_sales_by_region,total_quantity_sold,Aggregation,SUM(quantity) for the highest selling product in each region

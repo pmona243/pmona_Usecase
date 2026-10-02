@@ -1,0 +1,9 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+,,,gold,sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+public,sales_data_silver,product_id,gold,sales_by_region,product_id,Direct,Copy from source
+public,sales_data_silver,product_name,gold,sales_by_region,product_name,Direct,Copy from source
+public,sales_data_silver,category,gold,sales_by_region,category,Direct,Copy from source
+public,sales_data_silver,standard_price,gold,sales_by_region,standard_price,Direct,Copy from source
+public,stores_silver,source_file,gold,sales_by_region,region,Indirect,Extract region from source_file
+public,sales_data_silver,load_timestamp,gold,sales_by_region,sales_date,Direct,Copy from source
+public,sales_data_silver,product_id,gold,sales_by_region,total_sales,Aggregation,Sum of sales for each product

@@ -1,0 +1,13 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+,,,gold,highest_sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+,stores_silver,region,gold,highest_sales_by_region,region,Direct,Passthrough from stores_silver.region
+,products_silver,product_id,gold,highest_sales_by_region,product_id,Direct,Passthrough from products_silver.product_id
+,products_silver,product_name,gold,highest_sales_by_region,product_name,Direct,Passthrough from products_silver.product_name
+,products_silver,category,gold,highest_sales_by_region,category,Direct,Passthrough from products_silver.category
+,products_silver,standard_price,gold,highest_sales_by_region,standard_price,Direct,Passthrough from products_silver.standard_price
+,sales_data_silver,total_amount,gold,highest_sales_by_region,total_sales_amount,Indirect,Sum of sales_data_silver.total_amount grouped by product and region to find highest sales
+,sales_data_silver,product_id,gold,highest_sales_by_region,product_id,Direct,Passthrough from sales_data_silver.product_id
+,stores_silver,store_id,gold,highest_sales_by_region,store_id,Direct,Passthrough from stores_silver.store_id
+,sales_data_silver,store_id,gold,highest_sales_by_region,store_id,Direct,Passthrough from sales_data_silver.store_id
+,stores_silver,region,gold,highest_sales_by_region,region,Direct,Passthrough join key region between stores_silver and gold
+,sales_data_silver,product_name,gold,highest_sales_by_region,product_name,Direct,Passthrough from sales_data_silver.product_name

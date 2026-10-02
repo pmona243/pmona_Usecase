@@ -1,0 +1,8 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+silver,,,gold,region_product_sales_analysis,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+silver,stores_silver.parquet,region,gold,region_product_sales_analysis,region,Direct,GROUP BY region
+silver,sales_data_silver.parquet,product_id,gold,region_product_sales_analysis,product_id,Direct,GROUP BY product_id
+silver,sales_data_silver.parquet,product_name,gold,region_product_sales_analysis,product_name,Direct,GROUP BY product_name
+silver,sales_data_silver.parquet,category,gold,region_product_sales_analysis,category,Direct,GROUP BY category
+silver,sales_data_silver.parquet,total_amount,gold,region_product_sales_analysis,total_sales,Aggregate,"SUM(total_amount) grouped by region, product_id, product_name, category"
+silver,sales_data_silver.parquet,store_id,gold,region_product_sales_analysis,store_id,Join Key,JOIN stores_silver.parquet ON sales_data_silver.store_id = stores_silver.store_id

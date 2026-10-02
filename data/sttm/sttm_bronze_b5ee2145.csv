@@ -1,0 +1,27 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,stores,store_id,bronze,stores,store_id,Direct,Pass-through
+landing,stores,store_name,bronze,stores,store_name,Direct,Pass-through
+landing,stores,region,bronze,stores,region,Direct,Pass-through
+landing,stores,city,bronze,stores,city,Direct,Pass-through
+landing,stores,state,bronze,stores,state,Direct,Pass-through
+landing,stores,,bronze,stores,_load_timestamp,Indirect,Current timestamp
+landing,stores,,bronze,stores,_source_file,Indirect,C:\Users\pmona\Downloads\IDAMP-20260915\data\landing\stores.csv
+landing,products,product_id,bronze,products,product_id,Direct,Pass-through
+landing,products,product_name,bronze,products,product_name,Direct,Pass-through
+landing,products,category,bronze,products,category,Direct,Pass-through
+landing,products,standard_price,bronze,products,standard_price,Direct,Pass-through
+landing,products,,bronze,products,_load_timestamp,Indirect,Current timestamp
+landing,products,,bronze,products,_source_file,Indirect,C:\Users\pmona\Downloads\IDAMP-20260915\data\landing\products.csv
+landing,sales_data,transaction_id,bronze,sales_data,transaction_id,Direct,Pass-through
+landing,sales_data,transaction_date,bronze,sales_data,transaction_date,Direct,Pass-through
+landing,sales_data,store_id,bronze,sales_data,store_id,Direct,Pass-through
+landing,sales_data,product_id,bronze,sales_data,product_id,Direct,Pass-through
+landing,sales_data,product_name,bronze,sales_data,product_name,Direct,Pass-through
+landing,sales_data,category,bronze,sales_data,category,Direct,Pass-through
+landing,sales_data,quantity,bronze,sales_data,quantity,Direct,Pass-through
+landing,sales_data,unit_price,bronze,sales_data,unit_price,Direct,Pass-through
+landing,sales_data,total_amount,bronze,sales_data,total_amount,Direct,Pass-through
+landing,sales_data,customer_segment,bronze,sales_data,customer_segment,Direct,Pass-through
+landing,sales_data,payment_method,bronze,sales_data,payment_method,Direct,Pass-through
+landing,sales_data,,bronze,sales_data,_load_timestamp,Indirect,Current timestamp
+landing,sales_data,,bronze,sales_data,_source_file,Indirect,C:\Users\pmona\Downloads\IDAMP-20260915\data\landing\sales_data.csv

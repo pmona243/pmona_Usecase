@@ -1,0 +1,8 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+silver,,,gold,highest_sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+silver,stores_silver,region,gold,highest_sales_by_region,region,Direct,GROUP BY region from stores_silver joined with sales_data_silver on store_id
+silver,sales_data_silver,product_id,gold,highest_sales_by_region,product_id,Indirect,Product ID with highest total_amount per region using RANK() OVER (PARTITION BY region ORDER BY SUM(total_amount) DESC)
+silver,sales_data_silver,product_name,gold,highest_sales_by_region,product_name,Direct,Product name corresponding to the product_id with highest sales in each region
+silver,sales_data_silver,category,gold,highest_sales_by_region,category,Direct,Category corresponding to the product with highest sales in each region
+silver,sales_data_silver,total_amount,gold,highest_sales_by_region,total_sales,Aggregation,"SUM(total_amount) grouped by region and product_id, filtered to show only the highest per region"
+silver,sales_data_silver,quantity,gold,highest_sales_by_region,total_quantity_sold,Aggregation,SUM(quantity) for the product with highest sales in each region

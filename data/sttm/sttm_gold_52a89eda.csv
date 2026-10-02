@@ -1,0 +1,5 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+products_silver,,,gold,area_store_count,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+products_silver,stores_silver,region,gold,area_store_count,region,Direct,GROUP BY region
+products_silver,stores_silver,store_id,gold,area_store_count,store_count,Aggregation,COUNT(DISTINCT store_id) grouped by region
+products_silver,stores_silver,_load_timestamp,gold,area_store_count,_load_timestamp,Direct,MAX(_load_timestamp) for audit trail

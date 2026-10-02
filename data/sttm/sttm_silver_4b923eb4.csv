@@ -1,0 +1,30 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+products_bronze,products_bronze.parquet,,products_silver,products_silver,pk_products_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+products_bronze,products_bronze.parquet,product_id,products_silver,products_silver,product_id,Type Cast,"Cast to expected integral/string type as required, nulls allowed as per original"
+products_bronze,products_bronze.parquet,product_name,products_silver,products_silver,product_name,Null Handling,No filtering or deduplication; nulls preserved
+products_bronze,products_bronze.parquet,category,products_silver,products_silver,category,Null Handling,No filtering or deduplication; nulls preserved
+products_bronze,products_bronze.parquet,standard_price,products_silver,products_silver,standard_price,Null Handling and Type Cast,Cast to decimal/float as per source schema; nulls allowed
+products_bronze,products_bronze.parquet,_load_timestamp,products_silver,products_silver,_load_timestamp,Date Standardisation,Convert to ISO 8601 UTC format with nulls preserved
+products_bronze,products_bronze.parquet,_source_file,products_silver,products_silver,_source_file,Null Handling,Preserve nulls; no changes
+sales_data_bronze,sales_data_bronze.parquet,,sales_data_silver,sales_data_silver,pk_sales_data_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+sales_data_bronze,sales_data_bronze.parquet,transaction_id,sales_data_silver,sales_data_silver,transaction_id,Type Cast and Deduplication,Cast to string/integer as per source; remove exact duplicate rows based on transaction_id uniqueness
+sales_data_bronze,sales_data_bronze.parquet,transaction_date,sales_data_silver,sales_data_silver,transaction_date,Date Standardisation,Convert to ISO 8601 date format with nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,store_id,sales_data_silver,sales_data_silver,store_id,Type Cast,Cast to expected type; nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,product_id,sales_data_silver,sales_data_silver,product_id,Type Cast,Cast to expected type; nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,product_name,sales_data_silver,sales_data_silver,product_name,Null Handling,Preserve nulls; allow duplicates
+sales_data_bronze,sales_data_bronze.parquet,category,sales_data_silver,sales_data_silver,category,Null Handling,Preserve nulls; allow duplicates
+sales_data_bronze,sales_data_bronze.parquet,quantity,sales_data_silver,sales_data_silver,quantity,Type Cast,Cast to integer or numeric type as required; nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,unit_price,sales_data_silver,sales_data_silver,unit_price,Type Cast,Cast to decimal/float as required; nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,total_amount,sales_data_silver,sales_data_silver,total_amount,Type Cast,Cast to decimal/float as per source; nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,customer_segment,sales_data_silver,sales_data_silver,customer_segment,Null Handling,Preserve null values; allow duplicates
+sales_data_bronze,sales_data_bronze.parquet,payment_method,sales_data_silver,sales_data_silver,payment_method,Null Handling,Preserve nulls; allow duplicates
+sales_data_bronze,sales_data_bronze.parquet,_load_timestamp,sales_data_silver,sales_data_silver,_load_timestamp,Date Standardisation,Convert to ISO 8601 UTC format with nulls preserved
+sales_data_bronze,sales_data_bronze.parquet,_source_file,sales_data_silver,sales_data_silver,_source_file,Null Handling,Preserve nulls; no changes
+stores_bronze,stores_bronze.parquet,,stores_silver,stores_silver,pk_stores_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+stores_bronze,stores_bronze.parquet,store_id,stores_silver,stores_silver,store_id,Type Cast,Cast to expected integral/string type; nulls preserved
+stores_bronze,stores_bronze.parquet,store_name,stores_silver,stores_silver,store_name,Null Handling,Preserve nulls; duplicates allowed
+stores_bronze,stores_bronze.parquet,region,stores_silver,stores_silver,region,Null Handling,Preserve nulls; duplicates allowed
+stores_bronze,stores_bronze.parquet,city,stores_silver,stores_silver,city,Null Handling,Preserve nulls; duplicates allowed
+stores_bronze,stores_bronze.parquet,state,stores_silver,stores_silver,state,Null Handling,Preserve nulls; duplicates allowed
+stores_bronze,stores_bronze.parquet,_load_timestamp,stores_silver,stores_silver,_load_timestamp,Date Standardisation,Convert to ISO 8601 UTC format with nulls preserved
+stores_bronze,stores_bronze.parquet,_source_file,stores_silver,stores_silver,_source_file,Null Handling,Preserve nulls; no changes

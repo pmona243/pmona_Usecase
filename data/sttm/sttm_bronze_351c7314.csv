@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,copy,direct copy from source to target
+landing,products,product_name,bronze,products,product_name,copy,direct copy from source to target
+landing,products,category,bronze,products,category,copy,direct copy from source to target
+landing,products,standard_price,bronze,products,standard_price,copy,direct copy from source to target
+landing,sales_data,transaction_id,bronze,sales_data,transaction_id,copy,"direct copy from source to target, including nulls"
+landing,sales_data,transaction_date,bronze,sales_data,transaction_date,copy,"copy as is, mixed date formats preserved"
+landing,sales_data,store_id,bronze,sales_data,store_id,copy,"direct copy from source to target, including nulls"
+landing,sales_data,product_id,bronze,sales_data,product_id,copy,direct copy from source to target
+landing,sales_data,product_name,bronze,sales_data,product_name,copy,direct copy from source to target
+landing,sales_data,category,bronze,sales_data,category,copy,direct copy from source to target
+landing,sales_data,quantity,bronze,sales_data,quantity,copy,"direct copy of integer values, including negative for returns"
+landing,sales_data,unit_price,bronze,sales_data,unit_price,copy,direct copy of float values
+landing,sales_data,total_amount,bronze,sales_data,total_amount,copy,direct copy of float values including negatives
+landing,sales_data,customer_segment,bronze,sales_data,customer_segment,copy,direct copy from source to target
+landing,sales_data,payment_method,bronze,sales_data,payment_method,copy,direct copy from source to target
+landing,stores,store_id,bronze,stores,store_id,copy,direct copy from source to target
+landing,stores,store_name,bronze,stores,store_name,copy,direct copy from source to target
+landing,stores,region,bronze,stores,region,copy,direct copy from source to target
+landing,stores,city,bronze,stores,city,copy,direct copy from source to target
+landing,stores,state,bronze,stores,state,copy,direct copy from source to target

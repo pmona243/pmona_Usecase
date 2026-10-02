@@ -1,0 +1,11 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+silver,,,gold,product_sales_by_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+silver,stores_silver,store_id,gold,product_sales_by_region,store_id,Direct,Direct mapping from stores_silver
+silver,stores_silver,store_name,gold,product_sales_by_region,region,Direct,"Direct mapping from stores_silver, treated as region identifier"
+silver,sales_data_silver,product_id,gold,product_sales_by_region,product_id,Direct,Direct mapping from sales_data_silver
+silver,sales_data_silver,product_name,gold,product_sales_by_region,product_name,Direct,Direct mapping from sales_data_silver
+silver,sales_data_silver,category,gold,product_sales_by_region,category,Direct,Direct mapping from sales_data_silver
+silver,sales_data_silver,quantity,gold,product_sales_by_region,total_quantity_sold,Aggregation,"SUM(quantity) grouped by store_id, product_id, product_name, category"
+silver,products_silver,standard_price,gold,product_sales_by_region,unit_price,Direct,"Direct mapping from products_silver, joined on product_id"
+silver,sales_data_silver,quantity,gold,product_sales_by_region,total_sales_amount,Calculated,"SUM(quantity * standard_price) grouped by store_id, product_id, product_name, category"
+silver,sales_data_silver,load_timestamp,gold,product_sales_by_region,load_timestamp,Direct,Direct mapping from sales_data_silver

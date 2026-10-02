@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,staging,products,product_id,pass_through,Direct mapping from source to target without change
+landing,products,product_name,staging,products,product_name,pass_through,Direct mapping from source to target without change
+landing,products,category,staging,products,category,pass_through,Direct mapping from source to target without change
+landing,products,standard_price,staging,products,standard_price,pass_through,Direct mapping from source to target without change
+landing,sales_data,transaction_id,staging,sales_data,transaction_id,pass_through,Direct mapping; treat nulls as is
+landing,sales_data,transaction_date,staging,sales_data,transaction_date,pass_through,Direct mapping; preserve mixed date formats as is
+landing,sales_data,store_id,staging,sales_data,store_id,pass_through,Direct mapping; nulls preserved
+landing,sales_data,product_id,staging,sales_data,product_id,pass_through,Direct mapping from source to target without change
+landing,sales_data,product_name,staging,sales_data,product_name,pass_through,Direct mapping from source to target without change
+landing,sales_data,category,staging,sales_data,category,pass_through,Direct mapping from source to target without change
+landing,sales_data,quantity,staging,sales_data,quantity,pass_through,"Direct mapping, including negative values"
+landing,sales_data,unit_price,staging,sales_data,unit_price,pass_through,Direct mapping from source to target without change
+landing,sales_data,total_amount,staging,sales_data,total_amount,pass_through,"Direct mapping, including negative values"
+landing,sales_data,customer_segment,staging,sales_data,customer_segment,pass_through,Direct mapping from source to target without change
+landing,sales_data,payment_method,staging,sales_data,payment_method,pass_through,Direct mapping from source to target without change
+landing,stores,store_id,staging,stores,store_id,pass_through,Direct mapping from source to target without change
+landing,stores,store_name,staging,stores,store_name,pass_through,Direct mapping from source to target without change
+landing,stores,region,staging,stores,region,pass_through,Direct mapping from source to target without change
+landing,stores,city,staging,stores,city,pass_through,Direct mapping from source to target without change
+landing,stores,state,staging,stores,state,pass_through,Direct mapping from source to target without change

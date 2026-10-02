@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,direct copy,copy values as-is from landing.products.product_id
+landing,products,product_name,bronze,products,product_name,direct copy,copy values as-is from landing.products.product_name
+landing,products,category,bronze,products,category,direct copy,copy values as-is from landing.products.category
+landing,products,standard_price,bronze,products,standard_price,direct copy,copy values as-is from landing.products.standard_price
+landing,sales_data,transaction_id,bronze,sales_data,transaction_id,direct copy,copy values as-is from landing.sales_data.transaction_id
+landing,sales_data,transaction_date,bronze,sales_data,transaction_date,direct copy,"copy values as-is from landing.sales_data.transaction_date, without date format normalization"
+landing,sales_data,store_id,bronze,sales_data,store_id,direct copy,copy values as-is from landing.sales_data.store_id
+landing,sales_data,product_id,bronze,sales_data,product_id,direct copy,copy values as-is from landing.sales_data.product_id
+landing,sales_data,product_name,bronze,sales_data,product_name,direct copy,copy values as-is from landing.sales_data.product_name
+landing,sales_data,category,bronze,sales_data,category,direct copy,copy values as-is from landing.sales_data.category
+landing,sales_data,quantity,bronze,sales_data,quantity,direct copy,copy values as-is including negative values from landing.sales_data.quantity
+landing,sales_data,unit_price,bronze,sales_data,unit_price,direct copy,copy values as-is from landing.sales_data.unit_price
+landing,sales_data,total_amount,bronze,sales_data,total_amount,direct copy,copy values as-is including negative values from landing.sales_data.total_amount
+landing,sales_data,customer_segment,bronze,sales_data,customer_segment,direct copy,copy values as-is from landing.sales_data.customer_segment
+landing,sales_data,payment_method,bronze,sales_data,payment_method,direct copy,copy values as-is from landing.sales_data.payment_method
+landing,stores,store_id,bronze,stores,store_id,direct copy,copy values as-is from landing.stores.store_id
+landing,stores,store_name,bronze,stores,store_name,direct copy,copy values as-is from landing.stores.store_name
+landing,stores,region,bronze,stores,region,direct copy,copy values as-is from landing.stores.region
+landing,stores,city,bronze,stores,city,direct copy,copy values as-is from landing.stores.city
+landing,stores,state,bronze,stores,state,direct copy,copy values as-is from landing.stores.state

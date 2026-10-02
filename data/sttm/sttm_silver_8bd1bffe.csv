@@ -1,0 +1,30 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+products_bronze,products_bronze.parquet,,products_silver,products_silver,pk_products_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+products_bronze,products_bronze.parquet,product_id,products_silver,products_silver,product_id,Type casting,Cast to appropriate type (as in source); no nulls expected
+products_bronze,products_bronze.parquet,product_name,products_silver,products_silver,product_name,Null handling,Replace nulls with empty string; trim whitespace
+products_bronze,products_bronze.parquet,category,products_silver,products_silver,category,Null handling,Replace nulls with 'Unknown'; trim whitespace
+products_bronze,products_bronze.parquet,standard_price,products_silver,products_silver,standard_price,Null handling,Replace nulls with 0; cast to numeric
+products_bronze,products_bronze.parquet,_load_timestamp,products_silver,products_silver,_load_timestamp,Date standardisation,Parse and convert to ISO 8601 timestamp
+products_bronze,products_bronze.parquet,_source_file,products_silver,products_silver,_source_file,Null handling,Replace nulls with 'unknown_source'; trim whitespace
+sales_data_bronze,sales_data_bronze.parquet,,sales_data_silver,sales_data_silver,pk_sales_data_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+sales_data_bronze,sales_data_bronze.parquet,transaction_id,sales_data_silver,sales_data_silver,transaction_id,Type casting,Cast to appropriate type (as in source); no nulls expected
+sales_data_bronze,sales_data_bronze.parquet,transaction_date,sales_data_silver,sales_data_silver,transaction_date,Date standardisation,Parse and convert to ISO 8601 date
+sales_data_bronze,sales_data_bronze.parquet,store_id,sales_data_silver,sales_data_silver,store_id,Type casting,Cast to appropriate type; no nulls expected
+sales_data_bronze,sales_data_bronze.parquet,product_id,sales_data_silver,sales_data_silver,product_id,Type casting,Cast to appropriate type; no nulls expected
+sales_data_bronze,sales_data_bronze.parquet,product_name,sales_data_silver,sales_data_silver,product_name,Null handling,Replace nulls with empty string; trim whitespace
+sales_data_bronze,sales_data_bronze.parquet,category,sales_data_silver,sales_data_silver,category,Null handling,Replace nulls with 'Unknown'; trim whitespace
+sales_data_bronze,sales_data_bronze.parquet,quantity,sales_data_silver,sales_data_silver,quantity,Null handling,Replace nulls with 0; cast to integer
+sales_data_bronze,sales_data_bronze.parquet,unit_price,sales_data_silver,sales_data_silver,unit_price,Null handling,Replace nulls with 0; cast to numeric
+sales_data_bronze,sales_data_bronze.parquet,total_amount,sales_data_silver,sales_data_silver,total_amount,Null handling,Replace nulls with 0; cast to numeric
+sales_data_bronze,sales_data_bronze.parquet,customer_segment,sales_data_silver,sales_data_silver,customer_segment,Null handling,Replace nulls with 'Unknown'; trim whitespace
+sales_data_bronze,sales_data_bronze.parquet,payment_method,sales_data_silver,sales_data_silver,payment_method,Null handling,Replace nulls with 'Unknown'; trim whitespace
+sales_data_bronze,sales_data_bronze.parquet,_load_timestamp,sales_data_silver,sales_data_silver,_load_timestamp,Date standardisation,Parse and convert to ISO 8601 timestamp
+sales_data_bronze,sales_data_bronze.parquet,_source_file,sales_data_silver,sales_data_silver,_source_file,Null handling,Replace nulls with 'unknown_source'; trim whitespace
+stores_bronze,stores_bronze.parquet,,stores_silver,stores_silver,pk_stores_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+stores_bronze,stores_bronze.parquet,store_id,stores_silver,stores_silver,store_id,Type casting,Cast to appropriate type; no nulls expected
+stores_bronze,stores_bronze.parquet,store_name,stores_silver,stores_silver,store_name,Null handling,Replace nulls with empty string; trim whitespace
+stores_bronze,stores_bronze.parquet,region,stores_silver,stores_silver,region,Null handling,Replace nulls with 'Unknown'; trim whitespace
+stores_bronze,stores_bronze.parquet,city,stores_silver,stores_silver,city,Null handling,Replace nulls with empty string; trim whitespace
+stores_bronze,stores_bronze.parquet,state,stores_silver,stores_silver,state,Null handling,Replace nulls with empty string; trim whitespace
+stores_bronze,stores_bronze.parquet,_load_timestamp,stores_silver,stores_silver,_load_timestamp,Date standardisation,Parse and convert to ISO 8601 timestamp
+stores_bronze,stores_bronze.parquet,_source_file,stores_silver,stores_silver,_source_file,Null handling,Replace nulls with 'unknown_source'; trim whitespace

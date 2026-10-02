@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,silver,products,product_id,copy,direct copy of product_id column
+landing,products,product_name,silver,products,product_name,copy,direct copy of product_name column
+landing,products,category,silver,products,category,copy,direct copy of category column
+landing,products,standard_price,silver,products,standard_price,copy,direct copy of standard_price column
+landing,sales_data,transaction_id,silver,sales_data,transaction_id,copy,direct copy of transaction_id column including nulls
+landing,sales_data,transaction_date,silver,sales_data,transaction_date,copy,direct copy of transaction_date column with mixed date formats
+landing,sales_data,store_id,silver,sales_data,store_id,copy,direct copy of store_id column including nulls
+landing,sales_data,product_id,silver,sales_data,product_id,copy,direct copy of product_id column
+landing,sales_data,product_name,silver,sales_data,product_name,copy,direct copy of product_name column
+landing,sales_data,category,silver,sales_data,category,copy,direct copy of category column
+landing,sales_data,quantity,silver,sales_data,quantity,copy,direct copy of quantity column including negative values
+landing,sales_data,unit_price,silver,sales_data,unit_price,copy,direct copy of unit_price column
+landing,sales_data,total_amount,silver,sales_data,total_amount,copy,direct copy of total_amount column including negative values
+landing,sales_data,customer_segment,silver,sales_data,customer_segment,copy,direct copy of customer_segment column
+landing,sales_data,payment_method,silver,sales_data,payment_method,copy,direct copy of payment_method column
+landing,stores,store_id,silver,stores,store_id,copy,direct copy of store_id column
+landing,stores,store_name,silver,stores,store_name,copy,direct copy of store_name column
+landing,stores,region,silver,stores,region,copy,direct copy of region column
+landing,stores,city,silver,stores,city,copy,direct copy of city column
+landing,stores,state,silver,stores,state,copy,direct copy of state column

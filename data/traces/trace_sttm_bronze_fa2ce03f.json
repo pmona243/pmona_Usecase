@@ -1,0 +1,18 @@
+[
+  {
+    "agent": "sttm_bronze",
+    "run_id": "fa2ce03f-09db-4a81-8cb3-007b39fc44d9",
+    "started_at": "2026-10-02T11:12:31.944880+00:00",
+    "input": {
+      "profile_path": "C:\\Users\\pmona\\Downloads\\IDAMP-20260915\\data\\profiles\\profile_combined_20261002_164229.json"
+    },
+    "plan": "",
+    "tool_calls": [],
+    "reasoning_steps": [],
+    "output": {
+      "sttm_path": "C:\\Users\\pmona\\Downloads\\IDAMP-20260915\\data\\sttm\\sttm_bronze_fa2ce03f.csv"
+    },
+    "duration_seconds": 0.038,
+    "status": "success"
+  }
+]

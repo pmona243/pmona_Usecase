@@ -1,0 +1,11 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,Direct,pass-through
+landing,products,product_name,bronze,products,product_name,Direct,pass-through
+landing,products,category,bronze,products,category,Direct,pass-through
+landing,products,standard_price,bronze,products,standard_price,Direct,pass-through
+landing,products,,bronze,products,_load_timestamp,Indirect,current_timestamp
+landing,products,,bronze,products,_source_file,Indirect,'C:\\Users\\ysurendrakumar\\Downloads\\IDAMP 2 1\\IDAMP\\data\\landing\\products.csv'
+landing,sales_data,,bronze,sales_data,_load_timestamp,Indirect,current_timestamp
+landing,sales_data,,bronze,sales_data,_source_file,Indirect,'C:\\Users\\ysurendrakumar\\Downloads\\IDAMP 2 1\\IDAMP\\data\\landing\\sales_data.csv'
+landing,stores,,bronze,stores,_load_timestamp,Indirect,current_timestamp
+landing,stores,,bronze,stores,_source_file,Indirect,'C:\\Users\\ysurendrakumar\\Downloads\\IDAMP 2 1\\IDAMP\\data\\landing\\stores.csv'

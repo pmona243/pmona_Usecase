@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,analytics,products,product_id,none,Direct copy of product_id string from source to target
+landing,products,product_name,analytics,products,product_name,none,Direct copy of product_name string from source to target
+landing,products,category,analytics,products,category,none,Direct copy of category string from source to target
+landing,products,standard_price,analytics,products,standard_price,none,Direct copy of standard_price float value from source to target
+landing,sales_data,transaction_id,analytics,sales_data,transaction_id,none,"Direct copy of transaction_id string from source to target, including nulls"
+landing,sales_data,transaction_date,analytics,sales_data,transaction_date,none,"Direct copy of transaction_date string from source to target, including mixed date formats"
+landing,sales_data,store_id,analytics,sales_data,store_id,none,"Direct copy of store_id string from source to target, including nulls"
+landing,sales_data,product_id,analytics,sales_data,product_id,none,Direct copy of product_id string from source to target
+landing,sales_data,product_name,analytics,sales_data,product_name,none,Direct copy of product_name string from source to target
+landing,sales_data,category,analytics,sales_data,category,none,Direct copy of category string from source to target
+landing,sales_data,quantity,analytics,sales_data,quantity,none,"Direct copy of quantity integer from source to target, including negative values"
+landing,sales_data,unit_price,analytics,sales_data,unit_price,none,Direct copy of unit_price float from source to target
+landing,sales_data,total_amount,analytics,sales_data,total_amount,none,"Direct copy of total_amount float from source to target, including negative values"
+landing,sales_data,customer_segment,analytics,sales_data,customer_segment,none,Direct copy of customer_segment string from source to target
+landing,sales_data,payment_method,analytics,sales_data,payment_method,none,Direct copy of payment_method string from source to target
+landing,stores,store_id,analytics,stores,store_id,none,Direct copy of store_id string from source to target
+landing,stores,store_name,analytics,stores,store_name,none,Direct copy of store_name string from source to target
+landing,stores,region,analytics,stores,region,none,Direct copy of region string from source to target
+landing,stores,city,analytics,stores,city,none,Direct copy of city string from source to target
+landing,stores,state,analytics,stores,state,none,Direct copy of state string from source to target

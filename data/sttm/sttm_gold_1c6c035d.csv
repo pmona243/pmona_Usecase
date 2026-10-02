@@ -1,0 +1,14 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+silver,,,gold,highest_sales_per_region,pk_gold_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+silver,stores_silver.parquet,store_id,gold,highest_sales_per_region,store_id,Direct,Passthrough of store_id to identify sales location and join key
+silver,stores_silver.parquet,region,gold,highest_sales_per_region,region,Direct,Passthrough of region for grouping sales by region
+silver,products_silver.parquet,product_id,gold,highest_sales_per_region,product_id,Direct,Passthrough of product_id to identify products
+silver,products_silver.parquet,product_name,gold,highest_sales_per_region,product_name,Direct,Passthrough of product_name for reporting highest sales products
+silver,products_silver.parquet,category,gold,highest_sales_per_region,category,Direct,Passthrough of product category to provide product classification
+silver,products_silver.parquet,standard_price,gold,highest_sales_per_region,standard_price,Direct,Passthrough of standard_price to provide base product pricing
+silver,sales_data_silver.parquet,product_id,gold,highest_sales_per_region,product_id,Direct,Passthrough of product_id to join with products and sales
+silver,sales_data_silver.parquet,store_id,gold,highest_sales_per_region,store_id,Direct,Passthrough of store_id to join sales with store region
+silver,sales_data_silver.parquet,total_amount,gold,highest_sales_per_region,total_amount,Direct,Passthrough of total_amount for aggregation of sales per product per region
+silver,sales_data_silver.parquet,quantity,gold,highest_sales_per_region,quantity,Direct,Passthrough of quantity as it might help analyses or validation
+silver,stores_silver.parquet,store_id,gold,highest_sales_per_region,store_id,Indirect,Use store_id to join stores_silver.parquet to sales_data_silver.parquet for region attribution
+silver,sales_data_silver.parquet,product_id,gold,highest_sales_per_region,product_id,Indirect,Use product_id to join sales_data_silver.parquet to products_silver.parquet for product details

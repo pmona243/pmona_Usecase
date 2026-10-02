@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,pass_through,Direct copy of product_id as string
+landing,products,product_name,bronze,products,product_name,pass_through,Direct copy of product_name as string
+landing,products,category,bronze,products,category,pass_through,Direct copy of category as string
+landing,products,standard_price,bronze,products,standard_price,pass_through,Direct copy of standard_price as float
+landing,sales_data,transaction_id,bronze,sales_data,transaction_id,pass_through_nullable,"Direct copy of transaction_id as string, keep nulls as is"
+landing,sales_data,transaction_date,bronze,sales_data,transaction_date,pass_through,Direct copy of transaction_date as string (mixed date formats)
+landing,sales_data,store_id,bronze,sales_data,store_id,pass_through_nullable,"Direct copy of store_id as string, keep nulls as is"
+landing,sales_data,product_id,bronze,sales_data,product_id,pass_through,Direct copy of product_id as string
+landing,sales_data,product_name,bronze,sales_data,product_name,pass_through,Direct copy of product_name as string
+landing,sales_data,category,bronze,sales_data,category,pass_through,Direct copy of category as string
+landing,sales_data,quantity,bronze,sales_data,quantity,pass_through,Direct copy of quantity as integer including negative values
+landing,sales_data,unit_price,bronze,sales_data,unit_price,pass_through,Direct copy of unit_price as float
+landing,sales_data,total_amount,bronze,sales_data,total_amount,pass_through,Direct copy of total_amount as float including negative values
+landing,sales_data,customer_segment,bronze,sales_data,customer_segment,pass_through,Direct copy of customer_segment as string
+landing,sales_data,payment_method,bronze,sales_data,payment_method,pass_through,Direct copy of payment_method as string
+landing,stores,store_id,bronze,stores,store_id,pass_through,Direct copy of store_id as string
+landing,stores,store_name,bronze,stores,store_name,pass_through,Direct copy of store_name as string
+landing,stores,region,bronze,stores,region,pass_through,Direct copy of region as string
+landing,stores,city,bronze,stores,city,pass_through,Direct copy of city as string
+landing,stores,state,bronze,stores,state,pass_through,Direct copy of state as string

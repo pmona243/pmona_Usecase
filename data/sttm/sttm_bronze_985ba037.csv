@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,direct_map,Directly map product_id from products
+landing,products,product_name,bronze,products,product_name,direct_map,Directly map product_name from products
+landing,products,category,bronze,products,category,direct_map,Directly map category from products
+landing,products,standard_price,bronze,products,standard_price,direct_map,Directly map standard_price from products
+landing,sales_data,transaction_id,bronze,sales_data,transaction_id,direct_map,Directly map transaction_id from sales_data
+landing,sales_data,transaction_date,bronze,sales_data,transaction_date,direct_map,Directly map transaction_date from sales_data
+landing,sales_data,store_id,bronze,sales_data,store_id,direct_map,Directly map store_id from sales_data
+landing,sales_data,product_id,bronze,sales_data,product_id,direct_map,Directly map product_id from sales_data
+landing,sales_data,product_name,bronze,sales_data,product_name,direct_map,Directly map product_name from sales_data
+landing,sales_data,category,bronze,sales_data,category,direct_map,Directly map category from sales_data
+landing,sales_data,quantity,bronze,sales_data,quantity,direct_map,Directly map quantity from sales_data
+landing,sales_data,unit_price,bronze,sales_data,unit_price,direct_map,Directly map unit_price from sales_data
+landing,sales_data,total_amount,bronze,sales_data,total_amount,direct_map,Directly map total_amount from sales_data
+landing,sales_data,customer_segment,bronze,sales_data,customer_segment,direct_map,Directly map customer_segment from sales_data
+landing,sales_data,payment_method,bronze,sales_data,payment_method,direct_map,Directly map payment_method from sales_data
+landing,stores,store_id,bronze,stores,store_id,direct_map,Directly map store_id from stores
+landing,stores,store_name,bronze,stores,store_name,direct_map,Directly map store_name from stores
+landing,stores,region,bronze,stores,region,direct_map,Directly map region from stores
+landing,stores,city,bronze,stores,city,direct_map,Directly map city from stores
+landing,stores,state,bronze,stores,state,direct_map,Directly map state from stores

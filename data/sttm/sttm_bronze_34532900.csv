@@ -1,0 +1,21 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,products,product_id,bronze,products,product_id,Direct,Pass-through
+landing,products,product_name,bronze,products,product_name,Direct,Pass-through
+landing,products,category,bronze,products,category,Direct,Pass-through
+landing,products,standard_price,bronze,products,standard_price,Direct,Pass-through
+landing,products,,bronze,products,_load_timestamp,Indirect,CURRENT_TIMESTAMP()
+landing,products,,bronze,products,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\products.csv
+landing,sales_data,sale_id,bronze,sales_data,sale_id,Direct,Pass-through
+landing,sales_data,product_id,bronze,sales_data,product_id,Direct,Pass-through
+landing,sales_data,store_id,bronze,sales_data,store_id,Direct,Pass-through
+landing,sales_data,quantity,bronze,sales_data,quantity,Direct,Pass-through
+landing,sales_data,sale_amount,bronze,sales_data,sale_amount,Direct,Pass-through
+landing,sales_data,sale_date,bronze,sales_data,sale_date,Direct,Pass-through
+landing,sales_data,,bronze,sales_data,_load_timestamp,Indirect,CURRENT_TIMESTAMP()
+landing,sales_data,,bronze,sales_data,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\sales_data.csv
+landing,stores,store_id,bronze,stores,store_id,Direct,Pass-through
+landing,stores,store_name,bronze,stores,store_name,Direct,Pass-through
+landing,stores,location,bronze,stores,location,Direct,Pass-through
+landing,stores,manager_name,bronze,stores,manager_name,Direct,Pass-through
+landing,stores,,bronze,stores,_load_timestamp,Indirect,CURRENT_TIMESTAMP()
+landing,stores,,bronze,stores,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\stores.csv

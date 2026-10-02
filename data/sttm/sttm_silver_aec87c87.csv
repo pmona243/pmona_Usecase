@@ -1,0 +1,30 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+bronze,stores 2_bronze.parquet,,silver,stores 2_silver,pk_stores 2_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+bronze,stores 2_bronze.parquet,store_id,silver,stores 2_silver,store_id,Direct,Cast to VARCHAR; pass through as-is; retain NULL
+bronze,stores 2_bronze.parquet,store_name,silver,stores 2_silver,store_name,Direct,Pass-through
+bronze,stores 2_bronze.parquet,region,silver,stores 2_silver,region,Direct,Pass-through
+bronze,stores 2_bronze.parquet,city,silver,stores 2_silver,city,Direct,Pass-through
+bronze,stores 2_bronze.parquet,state,silver,stores 2_silver,state,Direct,Pass-through
+bronze,stores 2_bronze.parquet,_load_timestamp,silver,stores 2_silver,_load_timestamp,Direct,Pass-through
+bronze,stores 2_bronze.parquet,_source_file,silver,stores 2_silver,_source_file,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,,silver,sales_data 2_silver,pk_sales_data 2_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+bronze,sales_data 2_bronze.parquet,transaction_id,silver,sales_data 2_silver,transaction_id,Direct,Cast to VARCHAR; pass through as-is; retain NULL
+bronze,sales_data 2_bronze.parquet,transaction_date,silver,sales_data 2_silver,transaction_date,Indirect,Standardize date format to ISO 8601 (YYYY-MM-DD); retain NULL as NULL
+bronze,sales_data 2_bronze.parquet,store_id,silver,sales_data 2_silver,store_id,Direct,Cast to VARCHAR; pass through as-is; retain NULL
+bronze,sales_data 2_bronze.parquet,product_id,silver,sales_data 2_silver,product_id,Direct,Cast to VARCHAR; pass through as-is; retain NULL
+bronze,sales_data 2_bronze.parquet,product_name,silver,sales_data 2_silver,product_name,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,category,silver,sales_data 2_silver,category,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,quantity,silver,sales_data 2_silver,quantity,Indirect,"COALESCE(column, 0) — replace NULL with 0; retain numeric precision"
+bronze,sales_data 2_bronze.parquet,unit_price,silver,sales_data 2_silver,unit_price,Indirect,"COALESCE(column, 0) — replace NULL with 0; retain numeric precision"
+bronze,sales_data 2_bronze.parquet,total_amount,silver,sales_data 2_silver,total_amount,Indirect,"COALESCE(column, 0) — replace NULL with 0; retain numeric precision"
+bronze,sales_data 2_bronze.parquet,customer_segment,silver,sales_data 2_silver,customer_segment,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,payment_method,silver,sales_data 2_silver,payment_method,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,_load_timestamp,silver,sales_data 2_silver,_load_timestamp,Direct,Pass-through
+bronze,sales_data 2_bronze.parquet,_source_file,silver,sales_data 2_silver,_source_file,Direct,Pass-through
+bronze,products 2_bronze.parquet,,silver,products 2_silver,pk_products 2_silver_id,Indirect,Auto-generated sequential surrogate primary key starting from 1
+bronze,products 2_bronze.parquet,product_id,silver,products 2_silver,product_id,Direct,Cast to VARCHAR; pass through as-is; retain NULL
+bronze,products 2_bronze.parquet,product_name,silver,products 2_silver,product_name,Direct,Pass-through
+bronze,products 2_bronze.parquet,category,silver,products 2_silver,category,Direct,Pass-through
+bronze,products 2_bronze.parquet,standard_price,silver,products 2_silver,standard_price,Indirect,"COALESCE(column, 0) — replace NULL with 0; retain numeric precision"
+bronze,products 2_bronze.parquet,_load_timestamp,silver,products 2_silver,_load_timestamp,Direct,Pass-through
+bronze,products 2_bronze.parquet,_source_file,silver,products 2_silver,_source_file,Direct,Pass-through

@@ -1,0 +1,27 @@
+source_schema,source_table,source_column,target_schema,target_table,target_column,transformation_type,transformation_logic
+landing,stores 2,store_id,bronze,stores 2,store_id,Direct,Pass-through
+landing,stores 2,store_name,bronze,stores 2,store_name,Direct,Pass-through
+landing,stores 2,region,bronze,stores 2,region,Direct,Pass-through
+landing,stores 2,city,bronze,stores 2,city,Direct,Pass-through
+landing,stores 2,state,bronze,stores 2,state,Direct,Pass-through
+landing,stores 2,,bronze,stores 2,_load_timestamp,Indirect,Current timestamp
+landing,stores 2,,bronze,stores 2,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\stores 2.csv
+landing,sales_data 2,transaction_id,bronze,sales_data 2,transaction_id,Direct,Pass-through
+landing,sales_data 2,transaction_date,bronze,sales_data 2,transaction_date,Direct,Pass-through
+landing,sales_data 2,store_id,bronze,sales_data 2,store_id,Direct,Pass-through
+landing,sales_data 2,product_id,bronze,sales_data 2,product_id,Direct,Pass-through
+landing,sales_data 2,product_name,bronze,sales_data 2,product_name,Direct,Pass-through
+landing,sales_data 2,category,bronze,sales_data 2,category,Direct,Pass-through
+landing,sales_data 2,quantity,bronze,sales_data 2,quantity,Direct,Pass-through
+landing,sales_data 2,unit_price,bronze,sales_data 2,unit_price,Direct,Pass-through
+landing,sales_data 2,total_amount,bronze,sales_data 2,total_amount,Direct,Pass-through
+landing,sales_data 2,customer_segment,bronze,sales_data 2,customer_segment,Direct,Pass-through
+landing,sales_data 2,payment_method,bronze,sales_data 2,payment_method,Direct,Pass-through
+landing,sales_data 2,,bronze,sales_data 2,_load_timestamp,Indirect,Current timestamp
+landing,sales_data 2,,bronze,sales_data 2,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\sales_data 2.csv
+landing,products 2,product_id,bronze,products 2,product_id,Direct,Pass-through
+landing,products 2,product_name,bronze,products 2,product_name,Direct,Pass-through
+landing,products 2,category,bronze,products 2,category,Direct,Pass-through
+landing,products 2,standard_price,bronze,products 2,standard_price,Direct,Pass-through
+landing,products 2,,bronze,products 2,_load_timestamp,Indirect,Current timestamp
+landing,products 2,,bronze,products 2,_source_file,Indirect,C:\Users\ysurendrakumar\Downloads\IDAMP 2 1\IDAMP\data\landing\products 2.csv
